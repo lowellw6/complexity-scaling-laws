@@ -1,0 +1,3 @@
+[submodule "solvers/pyconcorde"]
+	path = solvers/pyconcorde
+	url = https://github.com/jvkersch/pyconcorde.git

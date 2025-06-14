@@ -1,0 +1,18 @@
+
+[
+    {"model_dim": 240},
+    {"model_dim": 192}, 
+    {"model_dim": 160}, 
+    {"model_dim": 128}, 
+    {"model_dim": 104}, 
+    {"model_dim": 88}, 
+    {"model_dim": 72}, 
+    {"model_dim": 56}, 
+    {"model_dim": 48}, 
+    {"model_dim": 40},
+    {"model_dim": 32}, 
+    {"model_dim": 24}
+]
+
+
+

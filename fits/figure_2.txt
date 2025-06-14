@@ -1,0 +1,6 @@
+opt n5 : 5 nodes, total length 2.51242
+drl n5 : 5 nodes, total length 2.51242
+opt n40 : 40 nodes, total length 5.17701
+drl n40 : 40 nodes, total length 5.25481
+opt 3d n10 : 10 nodes, total length 4.19900
+drl 3d n10 : 10 nodes, total length 4.24834

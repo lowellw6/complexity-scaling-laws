@@ -1,0 +1,13 @@
+
+[
+    {"nodes": 50, "dataset_prefix": "sol_50n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]},
+    {"nodes": 45, "dataset_prefix": "sol_45n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 40, "dataset_prefix": "sol_40n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 35, "dataset_prefix": "sol_35n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 30, "dataset_prefix": "sol_30n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 25, "dataset_prefix": "sol_25n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 20, "dataset_prefix": "sol_20n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 15, "dataset_prefix": "sol_15n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 10, "dataset_prefix": "sol_10n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, 
+    {"nodes": 5, "dataset_prefix": "sol_5n_1280000t", "dataset_idxs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+]

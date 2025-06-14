@@ -1,0 +1,7 @@
+torch
+numpy
+matplotlib
+mlflow==2.1.1
+tqdm
+requests
+optuna
