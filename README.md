@@ -1,7 +1,10 @@
 # Complexity Scaling Laws
 **Paper:** [Complexity Scaling Laws for Neural Models using Combinatorial Optimization](TODO)
 
-**Datasets:** [TODO](TODO)
+**Datasets:** WIP (waiting on data hoster to approve release)
+
+Datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
+They are provided in optimal tour order along ```nodes```
 
 2D TSP datasets are restricted to academic research use following [Concorde's liscense](https://www.math.uwaterloo.ca/tsp/concorde.html). Higher-dimensional approximately optimal datasets (generated with local search) do not share this restriction.
 
