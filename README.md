@@ -1,5 +1,5 @@
 # Complexity Scaling Laws
-**Paper:** [Complexity Scaling Laws for Neural Models using Combinatorial Optimization](TODO)
+**Paper:** [Complexity Scaling Laws for Neural Models using Combinatorial Optimization](https://arxiv.org/abs/2506.12932)
 
 **Datasets:** WIP (waiting on data hoster to approve release)
 
