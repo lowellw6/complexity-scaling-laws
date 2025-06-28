@@ -3,6 +3,16 @@ ___
 ### Run scripts from this directory
 ---
 ---
+### For SFT, we did NOT split train/eval datasets
+You'll want to change this if you train for multiple epochs (until early stopping).  
+
+To do so remove 0 from "dataset_idxs" in the corresponding [/config](../config) .json file. This reserves the first 10% of the full dataset for eval (1.28M problems) and trains on the remaining 90% (11.52M problems). You'll likely also want to extend the learning rate schedule accordingly in the [/train](../train) script (modifying 73.143 in the --cos_lr_schedule argument, expressed in thousands of model updates).
+
+Our SFT scripts train for one epoch over the full dataset then evaluate on the first 10% of problems seen early in training, learning from all available data while minimizing the risk of overfitting to the eval dataset.
+
+---
+---
+<br/>
 
 ## Launching job arrays
 ```launch_*.sh``` bash scripts initiate model training.
@@ -38,12 +48,12 @@ at the end of any launch or resume script. (Or remove it for CPU training.)
 ## Model and compute scaling
 **RL:** run ```launch_model_scaling.sh``` to launch then ```resume_model_scaling.sh``` to resume. MLflow exports and the Slurm array tag placeholder (when resuming) must be modified. Each cycle specifies 250K PPO minibatch updates, so we required 3 resumes to reach 1M updates. To run all training from launch, specify ```--itr 250``` in ```launch_model_scaling.sh``` for 250K iterations of 4 PPO minibatch updates. (This may require weeks of training depending on your hardware acceleration.)
 
-**SFT:** Make a directory called ```/datasets``` in the repo root and download all 10 of the 20-node Concorde datasets with format ```sol_20n_1280000t_[0-9].npy``` (2GB) to this directory. Run ```launch_model_scaling.sh``` to launch after modifying MLflow exports. No resuming was used since one epoch of training requires less than 10% the gradient updates compared to RL.
+**SFT:** Make a directory called ```/datasets``` in the repo root and download all 10 of the 20-node Concorde datasets with format ```sol_20n_1280000t_[0-9].npy``` (2GB) to that directory. Index 0 is provided in the [evaluation dataset](https://doi.org/10.7294/29374511), the remainder in the [training dataset](https://doi.org/10.7294/29374535). Run ```launch_model_scaling.sh``` to launch after modifying MLflow exports. No resuming was used since one epoch of training requires less than 10% the gradient updates compared to RL.
 
 ## Node scaling
 **RL:** run ```launch_node_scaling.sh``` to launch then ```resume_node_scaling.sh``` to resume. MLflow exports and the Slurm array tag placeholder (when resuming) must be modified. Either resume 3 times or modify the launch script as described for the RL model and compute scaling.
 
-**SFT:** Make a directory called ```/datasets``` in the repo root and download all 100 of the Concorde datasets with format ```sol_[5-50]n_1280000t_[0-9].npy``` (**27GB**) to this directory. Skip the 20-node datasets if you already downloaded them for model and compute scaling above. Run ```launch_node_scaling.sh``` to launch after modifying MLflow exports. No resuming was used since one epoch of training requires less than 10% the gradient updates compared to RL.
+**SFT:** Make a directory called ```/datasets``` in the repo root and download all 100 of the Concorde datasets with format ```sol_[5-50]n_1280000t_[0-9].npy``` (**27GB**) to that directory. If you have 30GB of space, you can just download both [evaluation](https://doi.org/10.7294/29374511) and [training](https://doi.org/10.7294/29374535) datasets in full; the former includes the 0 index chunks but also includes the high-dimensional eval datasets (3GB). Run ```launch_node_scaling.sh``` to launch after modifying MLflow exports. No resuming was used since one epoch of training requires less than 10% the gradient updates compared to RL.
 
 ## Spatial dimension scaling
 **RL:** run ```launch_dimension_scaling.sh``` to launch then ```resume_dimension_scaling.sh``` to resume. MLflow exports and the Slurm array tag placeholder (when resuming) must be modified. Either resume 3 times or modify the launch script as described for the RL model and compute scaling. 
