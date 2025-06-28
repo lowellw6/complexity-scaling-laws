@@ -1,7 +1,9 @@
 # Complexity Scaling Laws
 **Paper:** [Complexity Scaling Laws for Neural Models using Combinatorial Optimization](https://arxiv.org/abs/2506.12932)
 
-**Datasets:** WIP (waiting on data hoster to approve release)
+**Datasets:**  
+[Evaluation (5.8 GB)](https://doi.org/10.7294/29374511)  
+[Training (24 GB)](https://doi.org/10.7294/29374535)
 
 Datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
 They are provided in optimal tour order along ```nodes```
