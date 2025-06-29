@@ -23,7 +23,7 @@ python test/run.py
 ```
 
 ## Guide
-We are currently streamlining reproduction of main-paper experiments. Core components in ```/tsp``` are provided with only minor changes like renaming a few classes. Front-end scripts for training, evaluation, plotting, etc. are being re-organized and documented since the originals are user-friendly for only one person. Works in progress (WIP) that are currently unavailable are marked below.
+We are currently streamlining reproduction of main-paper experiments. Core components in ```/tsp``` are provided with only minor changes like renaming a few classes. Front-end scripts for evaluation, plotting, etc. are being re-organized and documented since the originals are user-friendly for only one person. Works in progress (WIP) that are currently unavailable are marked below.
 
 This repo omits scripts that we judged to be less important so the code is easier to navigate. Please make an issue for questions along the lines of "how did you handle..." and we can add documented versions of that code.
 
