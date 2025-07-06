@@ -11,13 +11,22 @@ They are provided in optimal tour order along ```nodes```
 2D TSP datasets are restricted to academic research use following [Concorde's liscense](https://www.math.uwaterloo.ca/tsp/concorde.html). Higher-dimensional approximately optimal datasets (generated with local search) do not share this restriction.
 
 ## Install
-_Tested on Python 3.8 for Ubuntu 18.04 and Rocky Linux 9.5_
+### Poetry
+Install poetry. You can do this with or without a virtual environment.
 ```
-pip install -r requirements.txt
-pip install -e .
+pip install poetry
 ```
+Install this package and dependencies. Poetry will create a virtual environment if one is not already activated.
+```
+poetry install
+```
+Activate poetry's virtual environment (skip if you made your own).
+```
+eval $(poetry env activate)
+```
+_For older poetry versions try_ ```poetry shell```
 
-Test core modules:
+Test core modules.
 ```
 python test/run.py
 ```
