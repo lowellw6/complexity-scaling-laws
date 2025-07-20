@@ -43,7 +43,7 @@ This repo omits scripts that we judged to be less important so the code is easie
 ```/train``` hosts bash scripts and a README with examples of launching and resuming training runs.
 
 ### Evaluating models
-**WIP**
+```/eval``` hosts bash scripts and a README with examples of evaluating trained models.
 
 ### Matplotlib plotting
 **WIP**
