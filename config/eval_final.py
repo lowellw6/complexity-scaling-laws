@@ -91,7 +91,7 @@ SUPER_CONFIG = dict(
         dataset_dir = dataset_path,
         dataset_stub = "$d_2opt_100k_10n_128000t.npy",
         output_dir = tour_path,
-        output_prefix = "drl_dim_scaling",
+        output_prefix = "drl_10n_dim_scaling",
         models = [
             (2, "<CHECKPOINT_MLFLOW_RUN_ID>"),  # from node scaling run array, to compare accuracy with proxy optimal dataset
             (3, "<CHECKPOINT_MLFLOW_RUN_ID>"),
@@ -124,7 +124,7 @@ SUPER_CONFIG = dict(
         dataset_dir = dataset_path,
         dataset_stub = "$d_2opt_1000k_20n_64000t.npy",
         output_dir = tour_path,
-        output_prefix = "drl_dim_scaling",
+        output_prefix = "drl_20n_dim_scaling",
         models = [
             (2, "<CHECKPOINT_MLFLOW_RUN_ID>"),  # from node scaling run array, to compare accuracy with proxy optimal dataset
             (3, "<CHECKPOINT_MLFLOW_RUN_ID>"),

@@ -25,6 +25,9 @@ from tsp.model.base import TspAcModel
 
 from config.eval_final import SUPER_CONFIG
 
+root_path = osp.dirname(osp.dirname(tsp.__file__))
+checkpoint_download_path = osp.join(root_path, "eval", "checkpoint_downloads")
+
 parser = argparse.ArgumentParser()
 parser.add_argument("cfg", default=None, type=str)
 
@@ -100,7 +103,7 @@ def create_agent(width, dims):
     return agent
 
 
-def load_checkpoint(agent, run_id, check_itr):
+def load_checkpoint_artifact(agent, run_id, check_itr):
     model_state_dict, _, _ = Logger.load_checkpoint(check_itr, run_id=run_id, device=torch.device(CUDA_IDX if CUDA_IDX is not None else "cpu"), no_mlflow=True)
 
     agent.load_state_dict(model_state_dict)
@@ -108,6 +111,15 @@ def load_checkpoint(agent, run_id, check_itr):
 
     Logger.log_hyperparam("model_run_id", run_id)
     Logger.log_hyperparam("model_checkpoint_itr", check_itr)
+
+
+def load_checkpoint_download(agent, download_path):
+    model_state_dict = torch.load(download_path, map_location=torch.device(CUDA_IDX if CUDA_IDX is not None else "cpu"))
+
+    agent.load_state_dict(model_state_dict)
+    agent.eval_mode()
+
+    Logger.log_hyperparam("checkpoint_path", download_path)
 
 
 def load_dataset(dataset_dir, dataset_stub):
@@ -187,6 +199,16 @@ def get_loss_type(cfg):
     raise Exception(f"Couldn't parse loss type from output prefix '{cfg.output_prefix}'")
 
 
+def get_suffix(output_prefix, scale):
+    width, nodes, dims = scale
+    if "model" in output_prefix:
+        return f"{width}w"
+    if "node" in output_prefix:
+        return f"{nodes}n"
+    if "dim" in output_prefix:
+        return f"{dims}d"
+
+
 
 if __name__ == "__main__":
     print("WARNING for node scales larger than 127, you'll need to update np.int8 in line 179")
@@ -201,7 +223,18 @@ if __name__ == "__main__":
     width, nodes, dims = scale
 
     agent = create_agent(width, dims)
-    load_checkpoint(agent, run_id, cfg.check_itr)
+
+    download_path = osp.join(checkpoint_download_path, f"{cfg.output_prefix}_{get_suffix(cfg.output_prefix, scale)}.pth")
+    if run_id.startswith("<") and osp.exists(download_path):
+        print(f"Loading downloaded checkpoint --> {download_path}")
+        load_checkpoint_download(agent, download_path)
+        
+    elif not run_id.startswith("<"):
+        print(f"Loading checkpoint with MLflow run id @ iteration --> {run_id} @ {cfg.check_itr}")
+        load_checkpoint_artifact(agent, run_id, cfg.check_itr)
+
+    else:
+        raise Exception("Either an MLflow run id or downloaded checkpoint path must be provided")
 
     dataset = load_dataset(cfg.dataset_dir, dataset_stub)
     assert dataset.shape[1:] == (nodes, dims)

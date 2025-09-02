@@ -8,6 +8,7 @@
 /DEBUG_run_id_map
 /temp_solver_files
 /hpo/storage
+/eval/checkpoint_downloads
 
 **/.vscode
 **/__pycache__
@@ -26,3 +27,4 @@
 **/*.log
 **/*.png
 **/*.svg
+**/slurm*.out
