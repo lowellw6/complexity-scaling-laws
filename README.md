@@ -32,9 +32,11 @@ python test/run.py
 ```
 
 ## Guide
-We are currently streamlining reproduction of main-paper experiments. Core components in ```/tsp``` are provided with only minor changes like renaming a few classes. Front-end scripts for evaluation, plotting, etc. are being re-organized and documented since the originals are user-friendly for only one person. Works in progress (WIP) that are currently unavailable are marked below.
+We are currently streamlining several peripheral components of the code.  
 
-This repo omits scripts that we judged to be less important so the code is easier to navigate. Please make an issue for questions along the lines of "how did you handle..." and we can add documented versions of that code.
+Core components in ```/tsp``` are provided with only minor changes like renaming a few classes. Front-end scripts for plotting, dataset generation, etc. are being re-organized and documented since the originals are user-friendly for only one person.  
+
+Works in progress (WIP) that are currently unavailable are marked below.
 
 ### Scaling law fits
 ```/fits``` hosts full-precision regression fits for scaling laws and other observed trends. We summarize a subset of these in Appendix A of the paper.
@@ -85,6 +87,7 @@ This will be updated as WIP portions above are addressed.
 - [draw](./draw) - TSP tour visualization code
 - [test](./test) - unit tests for core modules in ```/tsp```
 - [train](./train) - training scripts to reproduce main-paper experiments
+- [eval](./eval) - evaluation scripts to reproduce main-paper experiments
 - [fits](./fits) - scaling law regression fits
 
 
