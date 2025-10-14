@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #SBATCH -J SFT_model_scaling
-#SBATCH -p v100_normal_q
 #SBATCH -N 1 --ntasks-per-node=1 --cpus-per-task=21
 #SBATCH --gres=gpu:1
 #SBATCH -t 144:00:00

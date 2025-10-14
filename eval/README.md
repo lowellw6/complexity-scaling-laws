@@ -15,7 +15,7 @@ Make the directory ```/eval/checkpoint_downloads``` and download checkpoints fro
 ### Your checkpoints
 To evaluate final checkpoints produced via train/ scripts...  
 
-Specify the run ids in [config/eval_final.py](../config/eval_final.py) for the checkpoints that correspond to each scale. Replace each <CHECKPOINT_MLFLOW_RUN_ID> in the ```models``` list for the experiments specified in step 1.
+Specify the run ids in [config/eval_final.py](../config/eval_final.py) for the checkpoints that correspond to each scale. Replace each <CHECKPOINT_MLFLOW_RUN_ID> in the ```models``` list for the experiments specified in step 1 below.
 
 ### Runing evaluation
 
@@ -23,9 +23,9 @@ Specify the run ids in [config/eval_final.py](../config/eval_final.py) for the c
 
 2. Fill in your ```export MLFLOW_TRACKING_URI``` in [final.sh](final.sh). Or omit this line to log to ```/mlruns``` in this directory.
 
-2. Submit sbatch evaluation:  
+3. Submit sbatch evaluation:  
 *(See the readme in [train](../train) for advice on running without Slurm.)*
-    | Experiment | Key |
+    | Experiment | Command |
     | ------------- | ------------- |
     | RL Model Scaling  | ```sbatch --array=0-11 final.sh drl_model_scaling```  |
     | RL Node Scaling  | ```sbatch --array=0-9 final.sh drl_node_scaling```  |
@@ -37,4 +37,23 @@ Specify the run ids in [config/eval_final.py](../config/eval_final.py) for the c
 
 
 ## Compute scaling
-**WIP**
+*Checkpoints from the original paper are not provided because this would require cloud storage for several thousand checkpoints.*
+
+### Your checkpoints  
+To evaluate periodic checkpoints produced via train/ scripts...  
+
+Specify the run ids in [config/eval_temporal.py](../config/eval_temporal.py) for the checkpoints that correspond to each scale. Replace each <CHECKPOINT_MLFLOW_RUN_ID> in the ```models``` list for the experiments specified in step 1 below.
+
+### Runing evaluation
+
+1. Modify the ```CUDA_IDX=0``` hardcode in [launch/eval_temporal.py](../launch/eval_temporal.py) if needed.
+
+2. Fill in your ```export MLFLOW_TRACKING_URI``` in [temporal.sh](temporal.sh). Or omit this line to log to ```/mlruns``` in this directory.
+
+3. Submit sbatch evaluation:  
+*(See the readme in [train](../train) for advice on running without Slurm.)*
+    | Experiment | Command |
+    | ------------- | ------------- |
+    | RL Compute Scaling  | ```sbatch --array=0-11 temporal.sh drl_compute_scaling```  |
+    | SFT Compute Scaling  | ```sbatch --array=0-11 temporal.sh sft_compute_scaling```  |
+

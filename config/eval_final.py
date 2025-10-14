@@ -28,7 +28,7 @@ tour_path = osp.join(root_path, "ml_sol_datasets")
 SUPER_CONFIG = dict(
 
     drl_model_scaling = Namespace(
-        mlflow_logging_signature = f"model_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_model_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         nodes = 20,
         dims = 2,
         check_itr = 250_000,
@@ -56,7 +56,7 @@ SUPER_CONFIG = dict(
     ),
 
     drl_node_scaling = Namespace(
-        mlflow_logging_signature = f"node_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_node_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         width = 184,
         dims = 2,
         check_itr = 250_000,
@@ -82,7 +82,7 @@ SUPER_CONFIG = dict(
     ),
 
     drl_10n_dim_scaling = Namespace(
-        mlflow_logging_signature = f"10n_dim_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_10n_dim_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         width = 184,
         nodes = 10,
         check_itr = 250_000,
@@ -115,7 +115,7 @@ SUPER_CONFIG = dict(
     ),
 
     drl_20n_dim_scaling = Namespace(
-        mlflow_logging_signature = f"20n_dim_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_20n_dim_scaling_drl/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         width = 184,
         nodes = 20,
         check_itr = 250_000,
@@ -148,7 +148,7 @@ SUPER_CONFIG = dict(
     ),
 
     sft_model_scaling = Namespace(
-        mlflow_logging_signature = f"model_scaling_sft/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_model_scaling_sft/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         nodes = 20,
         dims = 2,
         check_itr = 73_143,
@@ -176,7 +176,7 @@ SUPER_CONFIG = dict(
     ),
 
     sft_node_scaling = Namespace(
-        mlflow_logging_signature = f"node_scaling_sft/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
+        mlflow_logging_signature = f"eval_node_scaling_sft/run_{os.getenv('SLURM_ARRAY_TASK_ID')}",  # format: <MLflow_experiment_group>/<MLflow_run_name> (if not provided, no logging occurs)
         width = 184,
         dims = 2,
         check_itr = 73_143,
