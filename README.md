@@ -3,12 +3,13 @@
 
 **Datasets:**  
 [Evaluation (5.8 GB)](https://doi.org/10.7294/29374511)  
-[Training (24 GB)](https://doi.org/10.7294/29374535)
+[Training (24 GB)](https://doi.org/10.7294/29374535)  
+[Models (0.9 GB)](https://doi.org/10.7294/30359275)
 
-Datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
+Training and evaluation datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
 They are provided in optimal tour order along ```nodes```
 
-2D TSP datasets are restricted to academic research use following [Concorde's liscense](https://www.math.uwaterloo.ca/tsp/concorde.html). Higher-dimensional approximately optimal datasets (generated with local search) do not share this restriction.
+2D TSP datasets along with "sft" prefix models are restricted to academic research use following [Concorde's liscense](https://www.math.uwaterloo.ca/tsp/concorde.html). Higher-dimensional approximately optimal datasets (generated with local search) and "drl" prefix models do not share this restriction. 
 
 ## Install
 ### Poetry
