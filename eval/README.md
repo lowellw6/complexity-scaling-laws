@@ -10,7 +10,7 @@ ___
 ### Downloading checkpoints
 To evaluate the paper checkpoints...  
 
-Make the directory ```/eval/checkpoint_downloads``` and download checkpoints from [TODO]().
+Make the directory ```/eval/checkpoint_downloads``` and [download checkpoints (0.9 GB)](https://doi.org/10.7294/30359275) to this directory.
 
 ### Your checkpoints
 To evaluate final checkpoints produced via train/ scripts...  
