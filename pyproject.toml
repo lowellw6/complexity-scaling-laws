@@ -21,7 +21,7 @@ torch = "~2.4.1"
 optuna = "~3.5.0"
 tqdm = "^4.67.1"
 requests = "^2.32.4"
-Cython = "~0.29.33
+Cython = "~0.29.33"
 
 [build-system]
 requires = ["poetry-core"]
