@@ -32,35 +32,29 @@ Test core modules.
 python test/run.py
 ```
 
-## Guide
-We are currently streamlining several peripheral components of the code.  
-
-Core components in ```/tsp``` are provided with only minor changes like renaming a few classes. Front-end scripts for plotting, dataset generation, etc. are being re-organized and documented since the originals are user-friendly for only one person.  
-
-Works in progress (WIP) that are currently unavailable are marked below.
+## Core
 
 ### Scaling law fits
-```/fits``` hosts full-precision regression fits for scaling laws and other observed trends. We summarize a subset of these in Appendix A of the paper.
+[```/fits```](./fits) &rarr; full-precision regression fits for scaling laws and other observed trends  
+(we summarize a subset of these in Appendix A of the paper)
 
 ### Training models
-```/train``` hosts bash scripts and a README with examples of launching and resuming training runs.
+[```/train```](./train) &rarr; bash scripts and a README with examples of launching and resuming training runs
 
 ### Evaluating models
-```/eval``` hosts bash scripts and a README with examples of evaluating trained models.
+[```/eval```](./eval) &rarr; bash scripts and a README with examples of evaluating trained models
 
 ### Matplotlib plotting
-**WIP**
+[```/plot```](./plot) &rarr; matplotlib visualization scripts for the main-paper experiments
 
 ### Dataset generation
-**WIP**
+[```/datagen```](./datagen) &rarr; generate datasets of optimal and approximately optimal TSP tours
 
 ### Local search experiments
-**WIP**
+[```/localsearch```](./localsearch/) &rarr; generate locally optimal TSP tours and run various fitness/distance analyses
 
 
 ## Organization
-This will be updated as WIP portions above are addressed.
-
 - [tsp](./tsp) - core model, algorithm, and data modules
     - [train.py](./tsp/train.py) - top-level ```TspTrainer```
     - [agent.py](./tsp/agent.py) - ```TspAgent``` class shared for RL and SFT
@@ -78,6 +72,10 @@ This will be updated as WIP portions above are addressed.
     - [train_model_agent.py](./launch/train_model_agent.py) - RL training
     - [train_model_supervised.py](./launch/train_model_supervised.py) - SFT training
     - [hpo_model_agent.py](./launch/hpo_model_agent.py) - RL HPO experiment using [BOHB](https://arxiv.org/pdf/1807.01774) implemented with [Optuna](https://optuna.org/)
+    - [eval_final.py](./launch/eval_final.py) - model, TSP node, and TSP dimension scaling evaluation (last checkpoint)
+    - [eval_temporal.py](./launch/eval_temporal.py) - compute scaling evaluation (periodic checkpoints throughout training)
+    - [gen_supervised_dataset.py](./launch/gen_supervised_dataset.py) - generate optimal TSP tours with PyConcorde (or brute force search)
+    - [merge_supervised_dataset.py](./launch/merge_supervised_dataset.py) - merge dataset chunks output by parallel workers of [gen_supervised_dataset.py](./launch/gen_supervised_dataset.py)
 - [config](./config) - configure experiments
 - [solvers](./solvers) - PyConcorde submodule
 - [mlf_utils](./mlf_utils) - custom MLflow utilities
@@ -87,9 +85,13 @@ This will be updated as WIP portions above are addressed.
 - [hpo](./hpo) - utilities for hyperparameter optimization performed via [launch/hpo_model_agent.py](./launch/hpo_model_agent.py)
 - [draw](./draw) - TSP tour visualization code
 - [test](./test) - unit tests for core modules in ```/tsp```
+- [fits](./fits) - scaling law regression fits
 - [train](./train) - training scripts to reproduce main-paper experiments
 - [eval](./eval) - evaluation scripts to reproduce main-paper experiments
-- [fits](./fits) - scaling law regression fits
+- [plot](./plot) - matplotlib visualization of MLflow metrics
+- [datagen](./datagen) - generate optimal and approximately optimal TSP data
+- [localsearch](./localsearch) - local optima generation and eval
+
 
 
 ## PyConcorde Install [Optional]

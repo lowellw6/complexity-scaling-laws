@@ -9,11 +9,13 @@ from optuna.storages import JournalStorage, JournalFileStorage, JournalRedisStor
 from optuna.samplers import TPESampler
 from optuna.pruners import HyperbandPruner, MedianPruner
 
-
+import tsp
+import os.path as osp
+root_path = osp.dirname(osp.dirname(tsp.__file__))
 
 STUDY_NAME = "grad_clip_BOHB_1000-min_100000-max_3-reduction_50n_drl_hpo"
-STUDY_PATH = "/home/lowell6/scale-fpc/hpo/storage/grad_clip_BOHB_1000-min_100000-max_3-reduction_50n_drl_hpo"
-REDIS_STORAGE_URL = "redis://default:H6upctK2hrMleacjdzNeXHpEb57EvOVn@redis-19726.c326.us-east-1-3.ec2.cloud.redislabs.com:19726"  # set as None if local journal.log already exists and we can skip fetching from Redis cloud
+STUDY_PATH = osp.join(root_path, "hpo/storage/grad_clip_BOHB_1000-min_100000-max_3-reduction_50n_drl_hpo")
+REDIS_STORAGE_URL = "redis://YOUR_REDIS_STORAGE_URL"  # set as None if local journal.log already exists and we can skip fetching from Redis cloud
 
 
 if __name__ == "__main__":
