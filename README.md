@@ -1,10 +1,14 @@
-# Complexity Scaling Laws
-**Paper:** [Complexity Scaling Laws for Neural Models using Combinatorial Optimization](https://arxiv.org/abs/2506.12932)
+<h1 style="margin-bottom:0;">Complexity Scaling Laws for Neural Models <br> using Combinatorial Optimization</h1>
+<p style="margin-top:2px;">
+     Lowell Weissman, Michael Krumdick, A. Lynn Abbott
+</p>
 
-**Datasets:**  
-[Evaluation (5.8 GB)](https://doi.org/10.7294/29374511)  
-[Training (24 GB)](https://doi.org/10.7294/29374535)  
-[Models (0.9 GB)](https://doi.org/10.7294/30359275)
+[![NeurIPS 2025](https://img.shields.io/badge/NeurIPS-2025-00b3b3.svg)](https://neurips.cc/virtual/2025/poster/119119
+) [![arXiv](https://img.shields.io/badge/arXiv-2506.12932-b31b1b.svg)](https://arxiv.org/abs/2506.12932) 
+
+[![eval](https://img.shields.io/badge/Data-Evaluation-blue)](https://doi.org/10.7294/29374511)
+[![train](https://img.shields.io/badge/Data-Training-blue)](https://doi.org/10.7294/29374535)
+[![models](https://img.shields.io/badge/Data-Models-blue)](https://doi.org/10.7294/30359275)
 
 Training and evaluation datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
 They are provided in optimal tour order along ```nodes```
@@ -143,3 +147,15 @@ This repository forks [MITRE tsp](https://github.com/mitre/tsp), the open source
 The [PyConcorde](https://github.com/jvkersch/pyconcorde) submodule is provided under a BSD-3-Clause license, and relies on Concorde and QSOpt which are provided under different liscenses.
 
 Under [Concorde's liscense](https://www.math.uwaterloo.ca/tsp/concorde.html), our optimal tour datasets for 2D TSP are restricted to academic research use.
+
+
+## Citation
+```
+@inproceedings{weissman2025complexity,
+  title     = {Complexity Scaling Laws for Neural Models using Combinatorial Optimization},
+  author    = {Weissman, Lowell and Krumdick, Michael and Abbott, A Lynn},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025},
+  url       = {https://neurips.cc/virtual/2025/poster/119119}
+}
+```
