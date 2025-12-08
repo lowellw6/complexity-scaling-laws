@@ -4,11 +4,7 @@
 </p>
 
 [![NeurIPS 2025](https://img.shields.io/badge/NeurIPS-2025-00b3b3.svg)](https://neurips.cc/virtual/2025/poster/119119
-) [![arXiv](https://img.shields.io/badge/arXiv-2506.12932-b31b1b.svg)](https://arxiv.org/abs/2506.12932) 
-
-[![eval](https://img.shields.io/badge/Data-Evaluation-blue)](https://doi.org/10.7294/29374511)
-[![train](https://img.shields.io/badge/Data-Training-blue)](https://doi.org/10.7294/29374535)
-[![models](https://img.shields.io/badge/Data-Models-blue)](https://doi.org/10.7294/30359275)
+) [![arXiv](https://img.shields.io/badge/arXiv-2506.12932-b31b1b.svg)](https://arxiv.org/abs/2506.12932) [![eval](https://img.shields.io/badge/Data-Evaluation-blue)](https://doi.org/10.7294/29374511) [![train](https://img.shields.io/badge/Data-Training-blue)](https://doi.org/10.7294/29374535) [![models](https://img.shields.io/badge/Data-Models-blue)](https://doi.org/10.7294/30359275)
 
 Training and evaluation datasets are TSP problem numpy arrays with shape: ```(batch, nodes, spatial_dimensions)```  
 They are provided in optimal tour order along ```nodes```
